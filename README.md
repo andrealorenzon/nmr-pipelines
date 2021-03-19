@@ -41,7 +41,17 @@ dicGLUE, data4 = ng.pipe_proc.ps(dicGLUE, data3,  # step 4
 ng.pipe.write("./filter/<FOLDER>/test4.ft2", dicGLUE, data4)
 ```
 
-A comparison between nmrpipe and nmrglue transformed matrices has been evaluated by `numpy.allclose()` with different relative tolerance.
+A comparison between nmrpipe and nmrglue transformed matrices has been evaluated by `numpy.allclose()` with different relative tolerance with the following code:
+
+```python
+for tolerance in [10**x for x in range(-10,6,2)]:
+
+    print(f"step\tAMX\tDMX \t tolerance = {tolerance}")
+    for step in range(5):
+        amxClose = np.allclose(amx_glue[step], amx_pipe[step], rtol=tolerance)
+        dmxClose = np.allclose(dmx_glue[step], dmx_pipe[step], rtol=tolerance)
+        print("{}\t{}\t{}\t{}".format(step, amxClose, dmxClose, 'OK' if (amxClose and dmxClose) else "!!"))
+```
 
 Results are reported below. Step is the matrix at each step: 0 is raw data readings. AMX is the comparison between pipelines for AMX FID, DMX for DMX FID. 
 
