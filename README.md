@@ -103,3 +103,6 @@ step	AMX	DMX 	 tolerance =10000
 * for FT step, tolerance of difference is higher, and the matrices are not comparble anymore
 * for PS step, matrices are different for any relative tolerance
 
+here is a plot of the first column of the ft2 files after the nmrglue pipeline, for AMX and DMX datasets, if it may help in clarifying.
+
+![image](https://user-images.githubusercontent.com/43496697/111759182-9f5f5480-889d-11eb-85fb-a1ef5df24dc4.png)
