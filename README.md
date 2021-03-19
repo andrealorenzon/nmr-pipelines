@@ -6,7 +6,7 @@ A copy of each file is saved in each \_amx  and \_dmx folder.
 
 For both nmrpipe folder, an FT2 file has been saved for every step in the following pipeline:
 
-```
+```bash
 nmrPipe -in test.fid \
 | nmrPipe -fn SP -off 0.5 -end 0.95 -pow 2 -elb 0.0 -glb 0.0 -c 0.5 \  # -> test1.ft2
 | nmrPipe -fn ZF -zf 1 -auto \ # -> test2.ft2
@@ -17,7 +17,7 @@ nmrPipe -in test.fid \
 
 For both nmrglue folder, an FT2 file has been saved for every step in the following pipeline:
 
-```
+```python
 rawdic,rawdata = ng.pipe.read("./filter/<FOLDER>/test0.fid") # step 0 
 
 dicGLUE, data1 = ng.pipe_proc.sp(rawdic, rawdata, # step 1
